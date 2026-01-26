@@ -295,14 +295,19 @@
 //
 //	return 0;
 //}
+//int main()
+//{
+//	double a = 0.1;
+//	double b = 0.2;
+//	double c = 0.3;
+//	if (fabs((a + b) - c) < 1e-9) // 1e-9 表⽰允许的误差范围
+//		cout << "a + b 约等于 c" << endl;
+//	else
+//		cout << "a + b 不等于 c" << endl;
+//	return 0;
+//}
 int main()
 {
-	double a = 0.1;
-	double b = 0.2;
-	double c = 0.3;
-	if (fabs((a + b) - c) < 1e-9) // 1e-9 表⽰允许的误差范围
-		cout << "a + b 约等于 c" << endl;
-	else
-		cout << "a + b 不等于 c" << endl;
+	cout << 'X' << 'Z' << endl;
 	return 0;
 }
