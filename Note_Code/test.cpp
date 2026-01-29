@@ -365,51 +365,111 @@
 //
 //	return 0;
 //}
-struct Student
-{
-	string name;
-	int score;
-};
-struct Teacher
-{
-	string name;
-	Student sArray[5];
-};
-void allocateSpace(Teacher tArray[], int len)
-{
-	string tName = "教师";
-	string sName = "学生";
-	string nameSeed = "ABCDE";
-	for (int i = 0; i < len; i++)
-	{
-		tArray[i].name = tName + nameSeed[i];
+//struct Student
+//{
+//	string name;
+//	int score;
+//};
+//struct Teacher
+//{
+//	string name;
+//	Student sArray[5];
+//};
+//void allocateSpace(Teacher tArray[], int len)
+//{
+//	string tName = "教师";
+//	string sName = "学生";
+//	string nameSeed = "ABCDE";
+//	for (int i = 0; i < len; i++)
+//	{
+//		tArray[i].name = tName + nameSeed[i];
+//
+//		for (int j = 0; j < 5; j++)
+//		{
+//			tArray[i].sArray[j].name = sName + nameSeed[j];
+//			tArray[i].sArray[j].score = rand() % 61 + 40;
+//		}
+//	}
+//}
+//void printTeachers(Teacher tArray[], int len)
+//{
+//	for (int i = 0; i < len; i++)
+//	{
+//		cout << tArray[i].name << endl;
+//		for (int j = 0; j < 5; j++)
+//		{
+//			cout << "\t姓名：" << tArray[i].sArray[j].name << " 分数：" << tArray[i].sArray[j].score << endl;
+//		}
+//	}
+//}
+//int main() 
+//{
+//
+//	srand((unsigned int)time(NULL)); //随机数种子 头文件 #include <ctime>
+//	Teacher tArray[3]; //老师数组
+//	int len = sizeof(tArray) / sizeof(Teacher);
+//	allocateSpace(tArray, len); //创建数据
+//	printTeachers(tArray, len); //打印数据
+//	system("pause");
+//	return 0;
+//}
+//int main() {
+//
+//	int a = 10;
+//	int b = 20;
+//	//int &c; //错误，引用必须初始化
+//	int& c = a; //一旦初始化后，就不可以更改
+//	c = b; //这是赋值操作，不是更改引用
+//	
+//	cout << "a = " << a << endl;
+//	cout << "b = " << b << endl;
+//	cout << "c = " << c << endl;
+//
+//	system("pause");
+//
+//	return 0;
+//}
 
-		for (int j = 0; j < 5; j++)
-		{
-			tArray[i].sArray[j].name = sName + nameSeed[j];
-			tArray[i].sArray[j].score = rand() % 61 + 40;
-		}
-	}
-}
-void printTeachers(Teacher tArray[], int len)
-{
-	for (int i = 0; i < len; i++)
-	{
-		cout << tArray[i].name << endl;
-		for (int j = 0; j < 5; j++)
-		{
-			cout << "\t姓名：" << tArray[i].sArray[j].name << " 分数：" << tArray[i].sArray[j].score << endl;
-		}
-	}
-}
-int main() 
-{
+//全局变量
+int g_a = 10;
+int g_b = 10;
 
-	srand((unsigned int)time(NULL)); //随机数种子 头文件 #include <ctime>
-	Teacher tArray[3]; //老师数组
-	int len = sizeof(tArray) / sizeof(Teacher);
-	allocateSpace(tArray, len); //创建数据
-	printTeachers(tArray, len); //打印数据
+//全局常量
+const int c_g_a = 10;
+const int c_g_b = 10;
+
+int main() {
+
+	//局部变量
+	int a = 10;
+	int b = 10;
+
+	//打印地址
+	cout << "局部变量a地址为： " << (int)&a << endl;
+	cout << "局部变量b地址为： " << (int)&b << endl;
+
+	cout << "全局变量g_a地址为： " <<  (int)&g_a << endl;
+	cout << "全局变量g_b地址为： " <<  (int)&g_b << endl;
+
+	//静态变量
+	static int s_a = 10;
+	static int s_b = 10;
+
+	cout << "静态变量s_a地址为： " << (int)&s_a << endl;
+	cout << "静态变量s_b地址为： " << (int)&s_b << endl;
+
+	cout << "字符串常量地址为： " << (int)&"hello world" << endl;
+	cout << "字符串常量地址为： " << (int)&"hello world1" << endl;
+
+	cout << "全局常量c_g_a地址为： " << (int)&c_g_a << endl;
+	cout << "全局常量c_g_b地址为： " << (int)&c_g_b << endl;
+
+	const int c_l_a = 10;
+	const int c_l_b = 10;
+	cout << "局部常量c_l_a地址为： " << (int)&c_l_a << endl;
+	cout << "局部常量c_l_b地址为： " << (int)&c_l_b << endl;
+
 	system("pause");
+
 	return 0;
 }
