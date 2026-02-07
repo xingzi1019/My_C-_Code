@@ -473,8 +473,65 @@
 //
 //	return 0;
 //}
+//string类型是C++的类型 相当于(int)那种
+//int main()
+//{
+//	//string s1;
+//	//string s2 = "haha";
+//	//string s3("hehe");
+//	//string s4 = s3;
+//	//string s5 = s2 + s3;
+//	//cout << s1 << endl << s2 << endl << s3 << endl << s4 << endl << s5 << endl;
+//	//string s6;
+//	////相比于cin getline遇到空格不会停止 而是默认遇到回车 \n 才会停止
+//	////getline有两种输入方式 第一种如下
+//	//getline(cin, s6);
+//	//cout << s6 << endl;
+//	////第二种如下 可以自定义结束标志 不在拘泥于回车\n
+//	//string s7;
+//	//getline(cin, s7, 'a');
+//	//cout << s7 << endl;
+//	////size() ⽤于获取字符串⻓度 用法如下
+//	//cout << s1.size() << endl;
+//	//cout << s2.size() << endl;
+//	//cout << s3.size() << endl;
+//	//cout << s4.size() << endl;
+//	//cout << s5.size() << endl;
+//	//cout << sizeof(s3) << endl;//28  
+//	//返回 string类对象本身在内存中占用的字节数 
+//	//返回的是 string类的大小，而不是字符串内容的长度
+//	//由你的编译器实现的 std::string内部结构决定的 MSVC是28/32 Clang/GCC是32
+//
+//	//string 的变量也是有下标的
+//	string s = "gugugaga";
+//	for (int e = 0; e < s.size(); ++e)
+//	{
+//		cout << s[e] << ' ';
+//	}
+//	return 0;
+//}
+
+//迭代器
+//迭代器是⼀种对象，它可以⽤来遍历容器（⽐如我们现在学习的 string ）中的元素
+//迭代器的作⽤类似于指针，或者数组下标。
+//
+//begin() ：返回指向字符串第⼀个字符的迭代器，需要⼀个迭代器的变量来接收。
+//end() ：返回指向字符串最后⼀个字符的下⼀个位置的迭代器（该位置不属于字符串）。
+//string 中 begin() 和 end() 返回的迭代器的类型是 string::iterator 。
+//
+//s.begin()    s.end()
+//   |            |
+//   |            |  //指向字符串最后⼀个字符的下⼀个位置的迭代器（该位置不属于字符串）上面有提到
+//s: a b c d e f
+//   0 1 2 3 4 5 ----->下标 
+//
+//迭代器是可以进⾏⼤⼩⽐较，也可以进⾏ + 或者 - 整数运算的。
+//⽐如： it++ ，就是让迭代器前进⼀步， it-- 就是让迭代器退后⼀步。
+//同⼀个容器的两个迭代器也可以相减，相减结果的绝对值，是两个迭代器中间元素的个数
 int main()
 {
-
+	string s = "haha";
+	string::iterator it = s.begin();
+	
 	return 0;
 }
