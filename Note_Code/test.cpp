@@ -528,10 +528,68 @@
 //迭代器是可以进⾏⼤⼩⽐较，也可以进⾏ + 或者 - 整数运算的。
 //⽐如： it++ ，就是让迭代器前进⼀步， it-- 就是让迭代器退后⼀步。
 //同⼀个容器的两个迭代器也可以相减，相减结果的绝对值，是两个迭代器中间元素的个数
+//int main()
+//{
+//	string s = "abcd";
+//	string::iterator it1 = s.begin();
+//	string::iterator it2 = s.end();
+//	if (it1<it2)
+//	{
+//		cout << "<" << endl;//cout这个
+//	}
+//	else
+//	{
+//		cout << '>' << endl;
+//	}
+//	cout << *it1 << *--it2 << endl;//要用*符号 解引用 和指针有点像
+//	it1++, it2--;
+//	cout << *it1 << *it2 << endl;
+//	cout << it2 - it1 << endl;
+//	return 0;
+//}
+//int main()
+//{
+//	string s = "abcdefg";
+//	//正序遍历
+//	for (auto it = s.begin(); it != s.end(); ++it)
+//	{
+//		cout << *it << ' ';
+//	}
+//	//逆序遍历
+//	//for (string::iterator it = s.end() - 1; it >= s.begin(); --it)//err 执行到最后一次时it还会-- 所以会越界
+//	//{
+//	//	cout << *it << ' ';
+//	//}
+//	for (string::iterator it = s.end(); it != s.begin(); )//没问题
+//	{
+//		--it;  // 先向前移动
+//		cout << *it << ' ';
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	string s = "abcdefghijk";
+//	for (string::iterator it = s.begin(); it < s.end(); ++it)
+//	{
+//		*it = 'x';
+//		cout << s << endl;
+//	}
+//	for (string::iterator it = s.begin(); it != s.end(); ++it)
+//	{
+//		cout << *it;
+//	}
+//	return 0;
+//}
+//push_back()尾插一个字符 使用方法如下
 int main()
 {
-	string s = "haha";
-	string::iterator it = s.begin();
-	
+	string s = "abcdef";
+	s.push_back('g');//字符串尾部插入一个字符
+	cout << s << endl;
+	s.push_back('i');
+	cout << s << endl;
+	s += 'j';
+	cout << s << endl;
 	return 0;
 }
