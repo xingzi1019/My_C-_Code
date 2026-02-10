@@ -582,14 +582,124 @@
 //	return 0;
 //}
 //push_back()尾插一个字符 使用方法如下
+//int main()
+//{
+//	//string 类型的字符串是⽀持 + 和 += 运算的。这⾥的本质是 string 中重载了operator+= 这个操作符
+//	//C++核心编程那里的
+//	string s = "abcdef";
+//	s.push_back('g');//字符串尾部插入一个字符
+//	cout << s << endl;
+//	s.push_back('i');
+//	cout << s << endl;
+//	s += 'j';
+//	cout << s << endl;
+//	string str;
+//	for (auto i = 'a'; i <= 'z'; ++i)
+//	{
+//		str.push_back(i);
+//	}
+//	cout << str << endl;
+//	return 0;
+//}
+
+//pop_back C++11以上才支持的
+//int main()
+//{
+//	string s = "hello";
+//	s.pop_back();
+//	cout << s << endl;//hell
+//	cout << s.size() << endl;//4
+//	s.pop_back();
+//	cout << s << endl;//hel
+//	cout << s.size() << endl;//3
+//	s.pop_back();
+//	cout << s << endl;//he
+//	cout << s.size() << endl;//2
+//	s.pop_back();
+//	cout << s << endl;//h
+//	cout << s.size() << endl;//1
+//	s.pop_back();
+//	cout << s << endl;//
+//	cout << s.size() << endl;//0
+//	//没长度了还进行删除就是未定义行为 下面这个为错误示范 编译会直接报错
+//	s.pop_back();
+//	cout << s << endl;//err
+//	cout << s.size() << endl;//err
+//	return 0;
+//}
+//int main()
+//{
+//	string s = "hello";
+//	cout << s << endl;
+//	while (s.size())
+//	{
+//		s.pop_back();
+//	}
+//	cout << s << endl;
+//	return 0;
+//}
+
+//insert find substr
+//insert的函数原型如下
+//string& insert (size_t pos, const string& str); //pos位置前⾯插⼊⼀个string字符串
+//string& insert(size_t pos, const char* s); //pos位置前⾯插⼊⼀个C风格的字符串
+//string& insert(size_t pos, size_t n, char c);//pos位置前⾯插⼊n个字符c
+//int main()
+//{
+//	//1
+//	string s1 = "abcdefg";
+//	string str1 = "123";
+//	s1.insert(3, str1);
+//	cout << s1 << endl;//abc123defg
+//
+//	//2
+//	string s2 = "123456";
+//	string str2 = "aaaaa";
+//	//s2.insert(4, str2.c_str());//c_str()返回一个指向字符串内容的常量C风格字符串指针 
+//	s2.insert(4, str2);
+//	cout << s2 << endl;//1234aaaaa56
+//
+//	//3
+//	string s3 = "123456";
+//	string str3 = "bbbbbb";
+//	s3.insert(4, 2, 'c');//记住 这个三个参数的是字符而不是字符串
+//	cout << s3 << endl;//123cc56
+//	return 0;
+//}
+//find
+//size_t find(const string& str, size_t pos = 0) const;
+//查找string类型的字符串str，默认是从头开始查找，pos可以指定位置开始
+//size_t find(const char* s, size_t pos = 0) const;
+//查找C风格的字符串s，默认是从头开始查找，pos可以指定位置开始
+//size_t find(const char* s, size_t pos, size_t n) const;
+//在字符串的pos这个位置开始查找C风格的字符串s中的前n个字符，
+//size_t find(char c, size_t pos = 0) const;
+//查找字符c，默认是从头开始，pos可以指定位置开始
 int main()
 {
-	string s = "abcdef";
-	s.push_back('g');//字符串尾部插入一个字符
-	cout << s << endl;
-	s.push_back('i');
-	cout << s << endl;
-	s += 'j';
-	cout << s << endl;
+	//0默认
+	string s1 = "hello world hello xingzi";
+	string des1 = "llo";
+	cout << s1.find(des1) << endl;//2 下标为2 默认从第一个位置(下标为0)开始查找
+
+	//1
+	string s2 = "hello world hello xingzi";
+	string des2 = "llo";
+	cout << s2.find(des2, 3) << endl;//14 
+
+	//2
+	string s3 = "hello world hello xingzi";
+	string des3 = "llo";
+	cout << s3.find(des3.c_str(), 3) << endl;//14
+
+	//3
+	string s4 = "hello world hello xingzi";
+	string des4 = "lo";
+	cout << s4.find(des4.c_str(), 7, 2) << endl;//15
+
+	//4
+	string s5 = "hello world hello xingzi";
+	cout << s5.find('x', 3) << endl;//18
+
 	return 0;
 }
