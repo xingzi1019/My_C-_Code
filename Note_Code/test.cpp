@@ -1,5 +1,6 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS 1
 #include "main.h"
+using namespace std;
 //现在需要C++ 数据结构 算法 三开
 //#include <iostream>
 //using namespace std; 
@@ -702,7 +703,8 @@
 //	return 0;
 //}
 
-//insert find substr
+//介绍几个string的成员函数
+//insert find substr 
 //insert的函数原型如下
 //string& insert (size_t pos, const string& str); //pos位置前⾯插⼊⼀个string字符串
 //string& insert(size_t pos, const char* s); //pos位置前⾯插⼊⼀个C风格的字符串
@@ -766,16 +768,148 @@
 //
 //	return 0;
 //}
+//int main()
+//{
+//	string s = "hello";
+//	int n = s.find('o');//返回的是size_t类型 这里会发生隐式类型转换 某些数据可能会有潜在的风险 所以最好还是用size_t来接收
+//	cout << n << endl;//4
+//	size_t m = s.find('o');
+//	cout << m << endl;//4
+//	if (string::npos == s.find("bit"))//可以放string也可以是C语言风格的字符串
+//	{
+//		cout << "no find" << endl;
+//	}
+//	return 0;
+//}
+
 //substr
+//⽤于截取字符串中指定位置指定⻓度的⼦串
 //string substr (size_t pos = 0, size_t len = npos) const;
 //pos 的默认值是0，也就是从下标为0的位置开始截取
 //len 的默认值是npos，意思是⼀直截取到字符串的末尾
+//substr() :如果函数不传参数，就是从下标为0的位置开始截取，直到结尾，得到的是整个字符串；
+//substr(pos) ：从指定下标 pos 位置开始截取⼦串，直到结尾；
+//substr(pos, len) ：从指定下标 pos 位置开始截取⻓度为 len 的⼦串
+//int main()
+//{
+//	string s = "hello world hello everyone";
+//	string str = s.substr();
+//	cout << str << endl;
+//	str = s.substr(12);
+//	cout << str << endl;
+//	str = s.substr(18, 25);//开始位置和要截取的长度
+//	cout << str << endl;
+//	str = s.substr((s.find("llo")) + sizeof("llo"));//substr多和find一起使用
+//	cout << str << endl;
+//	return 0;
+//}
+
+//string的关系运算
+//+ > < >= <= == !=  //注意并没有 - 这个操作 string没有重载这个操作
+//string是C++封装的类型 所以是有运算符的重载的 这里放到深入学习C++再说明
+//字符串的⽐较是基于字典序进⾏的，⽐较是对应位置上字符的ASCII值的⼤⼩；⽐较的不是字符串的⻓度
+//"abc" < "aq"; //'b'的ascii码值是⼩于'q'的
+//"abcdef" < "ff";//'a'的ASCII码值是⼩于'f'的
+//"100" < "9";//'1'的ASCII码值是⼩于'9'的
+//int main()
+//{
+//	string s = "aaa";
+//	string ss = "a";
+//	//两个字符串比较时至少得有一个是string类型 不能两个都是C语言风格的字符串
+//	//string string
+//	//string "abcd"
+//	//"abcs" string
+//	//"abc"  "abc"    ----->这个是错的 不能这样
+//	string str1 = "abc ";
+//	string str2 = "abc";
+//	if (str1 == str2)
+//	{
+//		cout << "srtr1 == str2" << endl;
+//	}
+//	else if (str1 > str2)
+//	{
+//		cout << "str1 > str2" << endl;//因为空格也有ASCII码值
+//	}
+//	else
+//	{
+//		cout << "str1 < str2" << endl;
+//	}
+//	return 0;
+//}
+
+//和string相关的函数
+//stoi stol
+//stoi 是将字符串转换成 int 类型的值
+//stol 是将字符串转换成 long int 类型的值
+//这两个函数非常类似，这⾥以 stoi 为例讲解⼀下这⾥函数的使⽤⽅式。
+//stoi 函数其实可以将⼀个 string 类型的字符串，转化为整型，函数原型如下：
+//int stoi(const string& str, size_t* idx = 0, int base = 10);
+//long stol(const string& str, size_t* idx = 0, int base = 10);
+//参数解读
+//。。str 表⽰被转换的 string 类型的字符串
+//。。idx 是⼀个输出型参数，也就是这个通过这个参数会带回⼀个值。 idx 是⼀个指针
+//    需要在外边创建⼀个 size_t 类型的值，传递它的地址给 idx ，这个参数将会带回 str 中⽆法正确匹配数字的第⼀个字符的位置。
+//。。base 表⽰被解析的字符串中数字的进制值，可能是 2, 8, 10, 16 或者 0 .
+//默认情况下这个值是 10 ，表⽰ 10 进制数字
+//。如果传递的是 2 ，表⽰被解析的字符串中是 2 进制的数字，最终会转换成 10 进制
+//◦ 如果传递的是 8 ，表⽰被解析的字符串中是 8 进制的数字，最终会转换成 10 进制
+//◦ 如果传递的是 16 ，表⽰被解析的字符串中是 16 进制的数字，最终会转换成 10 进制
+//◦ 如果传递的是 0 ，会根据字符串的内容的信息⾃动推导进制，⽐如：字符串中有 0x ，就认为是 16 进制， 
+//  0 开头会被认为是 8 进制，最终会转换成 10 进制。
+//int main()
+//{
+//	string s = "11x22";
+//	size_t pos = 0;
+//	int n = stoi(s, &pos);
+//	cout << n << endl;//11
+//	cout << "pos" << pos << endl;//2
+//	n = stoi(s, &pos, 2);
+//	cout << n << endl;//3  //二进制是11转换成10进制就是3 下面的同理
+//	cout << "pos" << pos << endl;//2
+//	n = stoi(s, &pos, 8);
+//	cout << n << endl;//9
+//	cout << "pos" << pos << endl;//2
+//	n = stoi(s, &pos, 16);
+//	cout << n << endl;//17
+//	cout << "pos" << pos << endl;//2
+//	n = stoi(s, &pos, 0);
+//	cout << n << endl;//11
+//	cout << "pos" << pos << endl;//2
+//	//假若我不需要pos那可以直接传递空指针 NULL(本质是0)
+//	n = stoi(s, 0, 10);//这样子也没问题
+//	cout << n << endl;//11
+//	return 0;
+//}
+
+//stod stof
+//stod 是将字符串转换成 double 类型的值，函数原型如下，和 stoi 函数的⽐较的话，少了描述
+//字符串中数字进制的参数，其他参数⼀致。 stof 是将字符串转换成 flaot 类型的值。
+//double stod(const string& str, size_t* idx = 0);
+//float stof(const string& str, size_t* idx = 0)
+//int main()
+//{
+//	string s = "3.14x456";
+//	size_t pos = 0;
+//	double ret = stod(s, &pos);
+//	cout << ret << endl;///3.14
+//	cout << "pos=" << pos << endl;//4
+//	return 0;
+//}
+
+//to_string
+//函数原型如下
+//string to_string(int val);
+//string to_string(long val);
+//string to_string(long long val);
+//string to_string(unsigned val);
+//string to_string(unsigned long val);
+//string to_string(unsigned long long val);
+//string to_string(float val);
+//string to_string(double val);
+//string to_string(long double val);
 int main()
 {
-	string s = "hello";
-	int n = s.find('o');//返回的是size_t类型 这里会发生隐式类型转换 某些数据可能会有潜在的风险 所以最好还是用size_t来接收
-	cout << n << endl;//4
-	size_t m = s.find('o');
-	cout << m << endl;//4
+	string pi = "pi is " + to_string(3.14159);
+	cout << pi << endl;
 	return 0;
 }
