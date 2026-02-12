@@ -186,6 +186,69 @@
 //	cout << 'X' << endl;
 //	return 0;
 //}
+
+//初次感受类和对象
+//第一种
+//class calc
+//{
+//public:
+//	int haha = 55;
+//	int sum(int* a, int* b)
+//	{
+//		return *a + *b;
+//	}
+//private:
+//	int div(int* a, int* b)
+//	{
+//		return a - b;
+//	}
+//};
+//
+//int main()
+//{
+//	calc s;
+//	int a = 1;
+//	int b = 2;
+//	int c = 3;
+//	int ret = s.sum(&a, &b);
+//	cout << ret << endl;
+//}
+//第二种
+//class calc
+//{
+//public:
+//	int a, b, c = 0;
+//	void setValues(int x, int y)
+//	{
+//		a = x;
+//		b = y;
+//	}
+//	void setValues(int x, int y, int z)
+//	{
+//		a = x;
+//		b = y;
+//		c = z;
+//	}
+//	int sum()
+//	{  // 不需要参数，直接使用成员变量
+//		return a + b + c;
+//	}
+//};
+//
+//int main()
+//{
+//	calc s;
+//	//1
+//	s.setValues(1, 2);
+//	int ret1 = s.sum();//直接调用,不需要参数
+//	cout << ret1 << endl;//3
+//	//2
+//	s.setValues(1, 2, 3);//重载函数
+//	int ret2 = s.sum();
+//	cout << ret2 << endl;//6
+//	return 0;
+//}
+
 //某幼儿园里，有5个小朋友编号为1、2、3、4、5，他们按自己的编号顺序围坐在一张圆桌旁
 //他们身上都有若干个糖果(键盘输入)，现在他们做一个分糖果游戏
 //从1号小朋友开始，将自己的糖果均分三份（如果有多余的糖果，则立即吃掉），自己留一份，其余两份分给他的相邻的两个小朋友
@@ -675,31 +738,44 @@
 //在字符串的pos这个位置开始查找C风格的字符串s中的前n个字符，
 //size_t find(char c, size_t pos = 0) const;
 //查找字符c，默认是从头开始，pos可以指定位置开始
+//int main()
+//{
+//	//0默认
+//	string s1 = "hello world hello xingzi";
+//	string des1 = "llo";
+//	cout << s1.find(des1) << endl;//2 下标为2 默认从第一个位置(下标为0)开始查找
+//
+//	//1
+//	string s2 = "hello world hello xingzi";
+//	string des2 = "llo";
+//	cout << s2.find(des2, 3) << endl;//14 
+//
+//	//2
+//	string s3 = "hello world hello xingzi";
+//	string des3 = "llo";
+//	cout << s3.find(des3.c_str(), 3) << endl;//14
+//
+//	//3
+//	string s4 = "hello world hello xingzi";
+//	string des4 = "lo";
+//	cout << s4.find(des4.c_str(), 7, 2) << endl;//15
+//
+//	//4
+//	string s5 = "hello world hello xingzi";
+//	cout << s5.find('x', 3) << endl;//18
+//
+//	return 0;
+//}
+//substr
+//string substr (size_t pos = 0, size_t len = npos) const;
+//pos 的默认值是0，也就是从下标为0的位置开始截取
+//len 的默认值是npos，意思是⼀直截取到字符串的末尾
 int main()
 {
-	//0默认
-	string s1 = "hello world hello xingzi";
-	string des1 = "llo";
-	cout << s1.find(des1) << endl;//2 下标为2 默认从第一个位置(下标为0)开始查找
-
-	//1
-	string s2 = "hello world hello xingzi";
-	string des2 = "llo";
-	cout << s2.find(des2, 3) << endl;//14 
-
-	//2
-	string s3 = "hello world hello xingzi";
-	string des3 = "llo";
-	cout << s3.find(des3.c_str(), 3) << endl;//14
-
-	//3
-	string s4 = "hello world hello xingzi";
-	string des4 = "lo";
-	cout << s4.find(des4.c_str(), 7, 2) << endl;//15
-
-	//4
-	string s5 = "hello world hello xingzi";
-	cout << s5.find('x', 3) << endl;//18
-
+	string s = "hello";
+	int n = s.find('o');//返回的是size_t类型 这里会发生隐式类型转换 某些数据可能会有潜在的风险 所以最好还是用size_t来接收
+	cout << n << endl;//4
+	size_t m = s.find('o');
+	cout << m << endl;//4
 	return 0;
 }
