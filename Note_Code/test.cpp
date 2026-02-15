@@ -907,9 +907,12 @@ using namespace std;
 //string to_string(float val);
 //string to_string(double val);
 //string to_string(long double val);
-int main()
-{
-	string pi = "pi is " + to_string(3.14159);
-	cout << pi << endl;
-	return 0;
-}
+//int main()
+//{
+//	string pi = "pi is " + to_string(3.14159);
+//	cout << pi << endl;
+//	return 0;
+//}
+
+//string支持关系运算
+//这里不在赘述
