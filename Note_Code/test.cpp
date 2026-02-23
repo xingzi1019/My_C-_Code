@@ -916,3 +916,10 @@ using namespace std;
 
 //string支持关系运算
 //这里不在赘述
+
+//输入输出
+int main()
+{
+
+	return 0;
+}
