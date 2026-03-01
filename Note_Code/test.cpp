@@ -917,9 +917,234 @@ using namespace std;
 //string支持关系运算
 //这里不在赘述
 
-//输入输出
+//引用和传引用调用
+//引⽤不是新定义⼀个变量,⽽是给已存在变量取了⼀个别名,编译器不会为引⽤变量开辟内存空间,它和它引⽤的变量是同⼀块内存空间
+//⽐如：李逵，在家称为"铁⽜"，江湖上⼈称"⿊旋⻛
+//引⽤使⽤格式：
+//类型& 引⽤变量名 = 引⽤实体;
+//int main()
+//{
+//	int a = 10;
+//	int& ra = a;//这个时候ra就是a的引用
+//	cout << a << endl;
+//	cout << ra << endl;
+//	cout << &a << endl;//所以地址打印出来是一样的
+//	cout << &ra << endl;
+//
+//	double d = 3.14;
+//	double& rd = d;
+//	cout << d << endl;
+//	cout << rd << endl;
+//	cout << &d << endl;
+//	cout << &rd << endl;
+//
+//	//引用也可以不止一个
+//	int xz = 19;
+//	int& xz1 = xz;
+//	int& xz2 = xz;
+//	cout << xz1 << "  " << & xz1 << endl;
+//	cout << xz2 << "  " << & xz2 << endl;
+//
+//	//引用的特性
+//	//1. 引⽤在定义时必须初始化
+//	//2. ⼀个变量可以有多个引⽤
+//	//3. 引⽤⼀旦引⽤⼀个实体，再不能引⽤其他实体
+//	int b = 20;
+//	int c = 30;
+//	int& rb = b;// ❗这是赋值不是重新引用
+//	rb = c;//这个相当于把 c 赋值给 b
+//	cout << b << endl;//30
+//	cout << rb << endl;//30
+//	cout << c << endl;//30
+//	return 0;
+//}
+
+//传引用调用
+//void Swap(int& x, int& y)//x是a的引用 y是b的引用 所以用的是同一块地址 所以可以实现值的交换
+//{
+//	//x和y是a和b的别名
+//	int temp = x; //直接使用不需要解引用 更加方便
+//	x = y;
+//	y = temp;
+//	cout << &x << endl;
+//	cout << &y << endl;//可以发现打印出来的地址是一样的
+//}
+////传地址调用
+//void Swap2(int* x, int* y)
+//{
+//	int temp = *x;
+//	*x = *y;
+//	*y = temp;
+//	cout << x << endl;//打印出来的地址也是一样的
+//	cout << y << endl;
+//}
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	cout << a << "  " << b << endl;
+//	cout << &a << endl;
+//	cout << &b << endl;
+//	//Swap(a, b);//不需要取地址更加方便
+//	Swap2(&a, &b);
+//	cout << a << endl;//20
+//	cout << b << endl;//10
+//	return 0;
+//}
+//上⾯这种实现 Swap 函数实现⽅式就是函数的传引⽤调⽤。
+//这种调⽤⽅式的本质是将实参变量的地址传递给了形参，⽽形参使⽤指针直接找到实参来进⾏操作。
+//所以修改形参的时候，直接改变的就是实参，这就是引⽤的应⽤。当然这⾥也可以使⽤指针来实现，⽐引⽤稍微复杂⼀些
+
+//其实在C++的STL中也提供了⼀个库函数 swap , 这个函数可以⽤来交换两个变量，也可以交换两个数
+//组（容器的值），如果掌握了，我们就不需要⾃⼰再⾃⼰实现交换的逻辑，直接使⽤现成的函数
+//swap 函数需要的头⽂件 <utility>
+//int main()
+//{
+//	int a = 1;
+//	int b = 2;
+//	swap(a, b);
+//	cout << a << endl;
+//	cout << b << endl;
+//	int arr1[3] = { 1,2,3 };
+//	int arr2[3] = { 4,5,6 };
+//	swap(arr1, arr2);
+//	for (auto e : arr1)//范围for的用法记得多加巩固
+//		cout << e << ' ';
+//	cout << endl;
+//	for (auto e : arr2)
+//		cout << e << ' ';
+//	cout << endl;
+//	//swap还支持交换vector map set string和其他容器
+//	string s1 = "hello";
+//	string s2 = "world";
+//	swap(s1,s2);
+//	cout << s1 << endl;
+//	cout << s2 << endl;
+//	//其他就不写了 还没学
+//	return 0;
+//}
+
+//引用字符串传参
+//void printString(string& s)
+//{
+//	cout << s << endl;
+//}
+//int main()
+//{
+//	string s("hello world");
+//	printString(s);
+//}
+
+//传值、传引⽤效率⽐较
+string s("hello world");
+void TestFunc1(string s) 
+{
+	;
+}
+void TestFunc2(string& s) 
+{
+	;
+}
+//void Test()
+//{
+//	// 以值作为函数参数
+//	size_t begin1 = clock();//ctime的 clock()函数用于测量程序 CPU 时间
+//	for (size_t i = 0; i < 10000000; ++i)
+//	{
+//		TestFunc1(s);//传值调用
+//	}
+//	size_t end1 = clock();
+//	// 以引⽤作为函数参数
+//	size_t begin2 = clock();
+//	for (size_t i = 0; i < 10000000; ++i)
+//	{
+//		TestFunc2(s);//传址调用
+//	}
+//	size_t end2 = clock();
+//	// 分别计算两个函数运⾏结束后的时间
+//	cout << "TestFunc1(string)-time:" << end1 - begin1 << endl;
+//	cout << "TestFunc2(string&)-time:" << end2 - begin2 << endl;
+//}
+//int main()
+//{ 
+//	Test();
+//	return 0;
+//}
+//数组在传参的时候，形参和实参本来就是同⼀个数组，所以数组传参的时候，不需要使⽤引⽤参数。
+
+//int IntAdd(int& x ,int& y)
+//{
+//	return x + y;
+//}
+//double DoubleAdd(double& x,double& y)
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	cin >> a >> b;
+//	int s = IntAdd(a,b);
+//	cout << s << endl;
+//	double c = 0;
+//	double d = 0;
+//	cin >> c >> d;
+//	double ss = DoubleAdd(c,d);
+//	cout << ss << endl;
+//	return 0;
+//}
+
+//函数重载：C++中的函数重载（Function Overloading）是指在同⼀个作⽤域中可以有多个同名函数
+//它们的函数名称相同，但是参数列表不同
+//函数返回类型 函数名(参数1, 参数2,...);
+//这⾥的“不同”指的是参数的数量、类型或顺序⾄少有⼀个不同。函数的返回类型并不影响函数的重载
+//因为C++编译器不会根据返回类型来区分不同的函数。
+//  对刚刚的代码进行修改
+//int Add(int& x ,int& y)//修改了函数昵称统一为Add
+//{
+//	return x + y;
+//}
+//double Add(double& x,double& y)//
+//{
+//	return x + y;
+//}
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	cin >> a >> b;
+//	int s = Add(a,b);//修改为调用Add
+//	cout << s << endl;
+//	double c = 0;
+//	double d = 0;
+//	cin >> c >> d;
+//	double ss = Add(c,d);//修改为调用Add
+//	cout << ss << endl;
+//	return 0;
+//}//发现可以正常执行
+//编译器会根据调用函数师时传递的参数，自动推导应该使用哪个函数
+void f()
+{
+	cout << "f()" << endl;
+}
+void f(int x)
+{
+	cout << "f(int x)" << endl;
+}
+void f(char c, int n)
+{
+	cout << "char c,int n" << endl;
+}
+void f(int n, char c)
+{
+	cout << "int n,char c" << endl;
+}
 int main()
 {
-
+	f();
+	f(4);
+	f('a', 1);
+	f(1,'a');
 	return 0;
 }
