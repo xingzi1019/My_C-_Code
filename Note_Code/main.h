@@ -7,3 +7,5 @@
 #include <string>
 #include <utility>
 #include <ctime>
+#include <algorithm>//max min
+

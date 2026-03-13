@@ -876,7 +876,7 @@ using namespace std;
 //	cout << n << endl;//11
 //	cout << "pos" << pos << endl;//2
 //	//假若我不需要pos那可以直接传递空指针 NULL(本质是0)
-//	n = stoi(s, 0, 10);//这样子也没问题
+//	n = stoi(s, 0, 10);//这样子也没问题 一般也是用这个
 //	cout << n << endl;//11
 //	return 0;
 //}
@@ -1036,15 +1036,15 @@ using namespace std;
 //}
 
 //传值、传引⽤效率⽐较
-string s("hello world");
-void TestFunc1(string s) 
-{
-	;
-}
-void TestFunc2(string& s) 
-{
-	;
-}
+//string s("hello world");
+//void TestFunc1(string s) 
+//{
+//	;
+//}
+//void TestFunc2(string& s) 
+//{
+//	;
+//}
 //void Test()
 //{
 //	// 以值作为函数参数
@@ -1124,27 +1124,208 @@ void TestFunc2(string& s)
 //	return 0;
 //}//发现可以正常执行
 //编译器会根据调用函数师时传递的参数，自动推导应该使用哪个函数
-void f()
-{
-	cout << "f()" << endl;
-}
-void f(int x)
-{
-	cout << "f(int x)" << endl;
-}
-void f(char c, int n)
-{
-	cout << "char c,int n" << endl;
-}
-void f(int n, char c)
-{
-	cout << "int n,char c" << endl;
-}
+//void f()
+//{
+//	cout << "f()" << endl;
+//}
+//void f(int x)
+//{
+//	cout << "f(int x)" << endl;
+//}
+//void f(char c, int n)
+//{
+//	cout << "char c,int n" << endl;
+//}
+//void f(int n, char c)
+//{
+//	cout << "int n,char c" << endl;
+//}
+//int main()
+//{
+//	f();
+//	f(4);
+//	f('a', 1);
+//	f(1,'a');
+//	return 0;
+//}
+
+//进制转换
+//#include <iostream>
+//using namespace std;
+//string s = "0123456789ABCDEF";
+//void x_to_m(int x, int m)
+//{
+//    if (x >= m)
+//        x_to_m(x / m, m);
+//    cout << s[x % m];
+//}
+//int main()
+//{
+//    int x = 0;
+//    int m = 0;
+//    cin >> x >> m;
+//    x_to_m(x, m);
+//    return 0;
+//}
+//10进制的12 ---> 2进制: 1 1 0 1
+//12(1101) % 2 = 1   13 / 2 = 6
+//6(110)   % 2 = 0    6 / 2 = 3
+//3(11)    % 2 = 1    3 / 2 = 1
+//1(1)     % 2 = 1    1 / 2 = 0
+// 
+// 
+//位运算与操作符属性
+//原码：直接将数值按照正负数的形式翻译成⼆进制得到的就是原码。
+//反码：将原码的符号位不变，其他位依次按位取反就可以得到反码。
+//补码：反码 + 1 就得到补码。
+//由补码得到原码也是可以使⽤：取反， + 1 的操作。
+//C语言那里已经解释过这里不在赘述
+//整数在内存中是以补码的形式存储的，整数
+//在参与位运算的时候，也都是使⽤内存中的补码进⾏计算的，计算的产⽣的结果也是补码，需要转换
+//成原码才是真实值
+
+//初识滑动窗口
+//力扣第三题
+//给定一个字符串 s ，请你找出其中不含有重复字符的 最长 子串 的长度。
+//输入: s = "abcabcbb"
+//输出 : 3
+//解释 : 因为无重复字符的最长子串是 "abc"，所以其长度为 3。注意 "bca" 和 "cab" 也是正确答案。
+//class Solution
+//{
+//public:
+//	int lengthOfLongestSubstring(string s)
+//	{
+//		//采用的是滑动窗口(双指针) [left,right]来维护无重复的子串
+//		//用数组记录每个字符最后一次出现的下标
+//		//遇到重复字符时 把左指针移到[重复位置+1]
+//		int last[128];
+//		memset(last, -1, 128);
+//		//vector<int>last(128, -1);
+//		int left = 0;
+//		int max_len = 0;
+//		int n = s.size();
+//		for (int right = 0; right < n; right++)//遍历母串
+//		{
+//			char c = s[right];//将当前遍历到的字符赋值给C
+//			if (last[c] >= left)//因为字符本质上存储的ASCII码所以可以作为数组访问的索引
+//			{
+//				left = last[c] + 1;
+//			}
+//			last[c] = right;
+//			max_len = max(max_len, right - left + 1);
+//		}
+//		return max_len;
+//	}
+//};
+
+//进制转换最终版
+//string ss = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//void x_to_m(int s, int m)
+//{
+//	if (s > m)
+//	{
+//		x_to_m(s/m,m);
+//	}
+//	cout << ss[s % m];
+//}
+//int main()
+//{
+//	int n, m;
+//	string sss;
+//	cin >> n >> sss >> m;
+//	int s = stoi(sss, NULL, n);
+//	x_to_m(s, m);
+//	return 0;
+//}
+
+//移位操作符，移动的是存储在内存中的补码的二进制序列
+//int main()
+//{
+//	int num = 10;
+//	//00000000 00000000 00000000 00001010 --->10的 原码 反码 补码
+//	int n = num << 1;//左移1位
+//	//左边抛弃 右边补0 ----->千万记住
+//	//00000000 00000000 00000000 00010100
+//	cout << "n = " << n << endl;
+//	cout << "num = " << num << endl;
+//	//需要注意的是这里的num不变 很好理解的参考下面
+//	int a = 1;
+//	int b = a + 1;
+//	cout << "a = " << a << endl;
+//	cout << "b = " << b << endl;
+//
+//	//总结:正数或者无符号数左移一位有乘2的结果
+//
+//	int c = -10;
+//	//10000000 00000000 00000000 00001010  ---> -10的原码
+//	//11111111 11111111 11111111 11110101  ---> -10的反码
+//	//11111111 11111111 11111111 11110110  ---> -10的补码
+//	int d = c << 1;
+//	//11111111 11111111 11111111 11101100  ---> d的补码
+//	//10000000 00000000 00000000 00010011
+//	//10000000 00000000 00000000 00010100  ---> d的原码
+//	cout << "c = " << c << endl;//-10
+//	cout << "d = " << d << endl;//-20
+//	return 0;
+//}
+
+//#define READ_PERMISSION 0x01 // 0001，表⽰读权限
+//#define WRITE_PERMISSION 0x02 // 0010，表⽰写权限
+//#define EXECUTE_PERMISSION 0x04 // 0100，表⽰执⾏权限
+//int main()
+//{
+//	int permissions = 0x03; // ⼆进制: 0011，具有读和写权限
+//	if (permissions & READ_PERMISSION)
+//	{
+//		printf("阅读权限被设置\n");
+//	}
+//	else
+//	{
+//		printf("阅读权限未被设置\n");
+//	}
+//
+//	if (permissions & WRITE_PERMISSION)
+//	{
+//		printf("写权限被设置\n");
+//	}
+//	else
+//	{
+//		printf("写权限未被设置\n");
+//	}
+//
+//	if (permissions & EXECUTE_PERMISSION)
+//	{
+//		printf("执⾏权限被设置\n");
+//	}
+//	else
+//	{
+//		printf("执⾏权限未被设置\n");
+//	}
+//	return 0;
+//}
+
+//获取二进制中的指定位置
 int main()
 {
-	f();
-	f(4);
-	f('a', 1);
-	f(1,'a');
+	//我们可以对 x 做这样的运算： (x >> i) & 1 ，如果结果是 0 ，表⽰第 i 位是 0 ，如果结果是 1 ，表⽰第 i 位是 1
+	int a = 5;
+	//00000000 00000000 00000000 00000101 --->5的原码 补码
+	//注意最右边是第0位
+	if (((a >> 2) & 1) == 1)
+	{
+		cout << "第3位是1" << endl;
+	}
+	else
+	{
+		cout << "第3位是0" << endl;
+	}
+	if (((a >> 1) & 1) == 1)
+	{
+		cout << "第2位是1" << endl;
+	}
+	else
+	{
+		cout << "第2位是0" << endl;
+	}
 	return 0;
 }
