@@ -8,4 +8,5 @@
 #include <utility>
 #include <ctime>
 #include <algorithm>//max min
+#include <vector>
 
