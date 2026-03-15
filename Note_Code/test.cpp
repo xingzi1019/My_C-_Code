@@ -1657,9 +1657,10 @@ struct stu
 //重载的是<<(输出运算符),让<<支持结构体stu类型的打印
 ostream& operator<<(ostream& os, stu& s)//这里的os相当于cout
 {
+	os << "重载: " << endl;
 	os << "名字: " << s.name << endl;
 	os << "年龄: " << s.age << endl;
-	return cout;
+	return os;
 }
 int main()
 {
