@@ -1648,31 +1648,70 @@ using namespace std;
 
 //运算符重载
 //能不能直接cout结构体变量
-struct stu
-{
-	string name;
-	int age;
-};
-//运算符的重载
-//重载的是<<(输出运算符),让<<支持结构体stu类型的打印
-ostream& operator<<(ostream& os, stu& s)//这里的os相当于cout
-{
-	os << "重载: " << endl;
-	os << "名字: " << s.name << endl;
-	os << "年龄: " << s.age << endl;
-	return os;
-}
-int main()
-{
-	int a = 1;
-	cout << a << endl;
-	char ch = 'b';
-	cout << ch << endl;
-	stu s1 = { "zhangsan",18 };
-	//cout << s1 << endl;//发现并不行
-	//没有与这些操作数匹配的 "<<" 运算符
-	//二元“<<”: 没有找到接受“stu”类型的右操作数的运算符(或没有可接受的转换)
-	//有了上面的重载之后就可以了
-	cout << s1 << endl;
-	return 0;
-}
+//struct stu
+//{
+//	string name;
+//	int age;
+//};
+////运算符的重载
+////重载的是<<(输出运算符),让<<支持结构体stu类型的打印
+//ostream& operator<<(ostream& os, stu& s)//这里的os相当于cout
+//{
+//	os << "重载: " << endl;
+//	os << "名字: " << s.name << endl;
+//	os << "年龄: " << s.age << endl;
+//	return os;
+//}
+//int main()
+//{
+//	int a = 1;
+//	cout << a << endl;
+//	char ch = 'b';
+//	cout << ch << endl;
+//	stu s1 = { "zhangsan",18 };
+//	//cout << s1 << endl;//发现并不行
+//	//没有与这些操作数匹配的 "<<" 运算符
+//	//二元“<<”: 没有找到接受“stu”类型的右操作数的运算符(或没有可接受的转换)
+//	//有了上面的重载之后就可以了
+//	cout << s1 << endl;
+//	return 0;
+//}
+//除了输出运算符可以重载之外，还有很多其他的操作符可以重载
+
+//介绍⼀个 C++ 的 STL 中的库函数 sort ，可以直接⽤来排序数据，在算法竞赛和⽇常开发中使⽤⾮常频繁。
+//只要涉及到数据的排序，⼜没有明确要求⾃⼰实现排序算法的时候，就可以直接使⽤sort函数
+// 
+//版本1 默认排序方式是升序
+//template <class RandomAccessIterator>   
+//void sort(RandomAccessIterator first, RandomAccessIterator last);
+//void sort(开始位置，结束位置);
+//first：指向要排序范围的第⼀个元素的迭代器或者指针。
+//last：指向要排序范围的最后⼀个元素之后位置的迭代器或者指针。
+//版本2  自定义的排序
+//template <class RandomAccessIterator, class Compare>
+//void sort(RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+//void sort(开始位置，结束位置，⾃定义排序函数);
+//first：指向要排序范围的第⼀个元素的迭代器或者指针。
+//last：指向要排序范围的最后⼀个元素之后位置的迭代器或者指针。
+//comp：是⼀个⽐较函数或者函数对象
+//这⾥开始位置和结束位置，可以是指针，也可以是迭代器
+//⾃定义排序函数 可以是函数，也可以是仿函数
+//int main()
+//{
+//	int arr[10] = { 2,4,3,1,5,9,7,6,8,10 };
+//	int len = sizeof(arr) / sizeof(arr[0]);
+//	sort(arr, arr + 10);
+//	//sort(arr, arr + len);
+//	for (auto& e : arr)
+//	{
+//		cout << e << ' ';
+//	}
+//	cout << endl;
+//	//对字符串中的字符进⾏排序
+//	//这⾥是对字符串中字符的顺序进⾏排序，是按照字符的ASCII值进⾏排序的
+//	string s("defxxxabccba");
+//	sort(s.begin(), s.end());
+//	cout << s << endl;
+//	return 0;
+//}
+
