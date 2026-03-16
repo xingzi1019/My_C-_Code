@@ -1714,4 +1714,124 @@ using namespace std;
 //	cout << s << endl;
 //	return 0;
 //}
+//int main()
+//{
+//	string s = "defhsjfhiuuyyiooi";
+//	sort(s.begin(), s.end());//s有迭代器
+//	//记住默认是升序
+//	cout << s << endl;
+//	return 0;
+//}
+//sort 的第三个参数是⼀个可选的⾃定义⽐较函数（或函数对象），⽤于指定排序的规则
+//如果不提供这个参数， std::sort 默认会使⽤⼩于运算符(< ) 来⽐较元素，并按照升序排序
+//这个⽐较函数，接受两个参数，并返回⼀个布尔值
+//如果第⼀个参数应该排在第⼆个参数之前，则返回 true；否则返回 false
+//两种方法
+//第一种创建比较函数
+//第二种结构体重载()运算符-仿函数
+
+//法一:构造比较函数
+//bool comp(int x, int y)
+//{
+//	return x > y;//降序
+//	//口诀: 小生(升) 大降
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int size = sizeof(arr) / sizeof(arr[0]);
+//	sort(arr, arr + size, comp);
+//	for (auto& e : arr)
+//	{
+//		cout << e << ' ';//降序输出
+//	}
+//	cout << endl;
+//	return 0;
+//}
+
+//法二:结构体重载()运算符-仿函数
+//关于仿函数、操作符重载，要深⼊学习C++，竞赛中涉及的较少、也⽐较浅，会⽤就⾏
+//struct Cmp
+//{
+//	bool operator()(int x, int y)
+//	{
+//		//return x > y;//降序
+//		return x < y;//升序
+//	}
+//}cmp;
+//int main()
+//{
+//	int arr[] = { 2,5,4,3,1,6,8,9,7,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	sort(arr, arr + sz, cmp);
+//	for (auto& e : arr)
+//	{
+//		cout << e << ' ';
+//	}
+//	cout << endl;
+//	return 0;
+//}
+
+//结构体排序
+//struct S
+//{
+//	string name;
+//	int age;
+//};
+//bool cmp_s_by_age(const struct S& s1, S& s2)//const struct可以不加
+//{
+//	return s1.age > s2.age; //按年龄降序
+//}
+//bool cmp_s_by_name(const struct S& s1, const struct S& s2)
+//{
+//	return s1.name > s2.name;//按名字降序
+//}
+////测试⾃定义⽐较函数
+//void test1()
+//{
+//	struct S s[3] = { {"zhangsan", 20}, {"lisi", 25}, {"wangwu", 18} };
+//	sort(s, s + 3, cmp_s_by_age);
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		cout << s[i].name << " " << s[i].age << endl;
+//	}
+//}
+//struct CmpByNameLess
+//{
+//	bool operator()(const struct S& s1, const struct S& s2)
+//	{
+//		return s1.name < s2.name; //按照名字升序
+//	}
+//};
+//struct CmpByAgeGreater
+//{
+//	bool operator()(const struct S& s1, const struct S& s2)
+//	{
+//		return s1.age > s2.age; //按照年龄降序
+//	}
+//};
+////测试结构中重载()运算符实现⽐较
+//void test2()
+//{
+//	struct S s[3] = { {"zhangsan", 20}, {"lisi", 25}, {"wangwu", 18} };
+//	sort(s, s + 3, CmpByNameLess());
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		cout << s[i].name << " " << s[i].age << endl;
+//	}
+//}
+//int main()
+//{
+//	test1();
+//	test2();
+//	return 0;
+//}
+
+int main()
+{
+
+	return 0;
+}
 
