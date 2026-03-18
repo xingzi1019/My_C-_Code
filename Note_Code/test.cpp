@@ -1773,6 +1773,50 @@ using namespace std;
 //}
 
 //结构体排序
+struct s
+{
+	string name;
+	int age;
+};
+//创建函数的方式
+//bool cmp_s_by_name(s s1, s s2)
+//{
+//	return s1.name < s2.name;//小升
+//}
+//bool cmp_s_by_age(s& s1, s& s2)
+//{
+//	return s1.age > s2.age;//大降
+//}
+//按照仿函数的方式
+//struct Cmp
+//{
+//	bool operator()(s s1, s s2)//重载这个括号
+//	{
+//		//return s1.name > s2.name;//降序
+//		return s1.name < s2.name;//升序
+//	}
+//}cmp;
+//struct Cmp
+//{
+//	bool operator()(s& s1, s& s2)//重载这个括号
+//	{
+//		return s1.age > s2.age;//降序
+//		//return s1.age < s2.age;//升序
+//	}
+//}cmp;
+//int main()
+//{
+//	s arr[3] = { {"b",19} ,{"a",12}, {"c",23} };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	//sort(arr, arr + sz, cmp_s_by_name);
+//	sort(arr, arr + sz, cmp);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		cout << arr[i].name << ":" << arr[i].age << endl;
+//	}
+//	return 0;
+//}
+
 //struct S
 //{
 //	string name;
@@ -1829,9 +1873,212 @@ using namespace std;
 //	return 0;
 //}
 
-int main()
-{
+//类和结构体的比较
+//C++中为了更好的实现⾯向对象，更喜欢使⽤ class (类)来替换 struct (结构体)
+//你可以简单粗暴的理解为 class 和 struct 是⼀回事，但是其实本上还是有区别的
+//class 是⽤来定义类类型的关键字，在类中可以定义成员函数和成员变量。
+//public 是类成员权限访问限定符，标志类中的成员可以公开访问及调⽤，访问限定符在后续内容中会介绍
+//结构体默认public
+//class tag
+//{
+//public:
+//
+//};
+//class s
+//{
+//	//下面这些默认是私有的 private 的 所以需要手动设置成 public
+//public:
+//	string name;
+//	int age;
+//	int grage;
+//};
+//struct S
+//{
+//	//
+//	string name;
+//	int age;
+//};
+//class Stu
+//{
+//public:
+//	//成员变量
+//	string name;
+//	int chinese;
+//	int math;
+//	int total;
+//	//成员函数 ---->自定义
+//	void init_stu()
+//	{
+//		name = "小明";
+//		chinese = 90;
+//		math = 98;
+//		total = chinese + math;
+//	}
+//	//类也是默认有 构造函数 析构函数...
+//};
+////用类创建的变量也叫对象
+//int main()
+//{
+//	Stu s1;
+//	s1.init_stu();
+//	s1.name = "明明";
+//
+//	return 0;
+//}
+//类有三种访问限定符 public private protected
+//public ：成员被声明为 public 后，可以被该类的任何方法访问，包括在类的外部
+//protected ：成员被声明为 protected 后，可以被该类访问(暂不介绍)
+//private ：成员被声明为 private 后，只能被该类的成员函数访问
+//class Stu
+//{
+//private:
+//	//成员变量
+//	string name;
+//	int chinese;
+//	int math;
+//	int total;
+//public:
+//	//成员函数 ---->自定义
+//	void init_stu()
+//	{
+//		name = "小明";
+//		chinese = 90;
+//		math = 98;
+//		total = chinese + math;
+//	}
+//	//类也是默认有 构造函数 析构函数...
+//};
+//用类创建的变量也叫对象
+//int main()
+//{
+//	Stu s1;
+//	s1.init_stu();
+//	//s1.name = "明明";//error
+//	return 0;
+//}
+//习惯上，外部可访问的成员函数通常设置为公有属性（ public ），⽽为了提⾼成员变量的访问安全性
+//通常将成员变量设置为私有属性（ private ），即只有类内部可以访问
+//struct tag
+//{
+//private:
+//	string name;
+//public:
+//	int age;
+//	void init_tag()
+//	{
+//		name = "aaa";
+//		age = 18;
+//	}
+//};
+//int main()
+//{
+//	tag s;
+//	s.init_tag();
+//	s.age = 100;
+//	cout << s.age << endl;
+//	//cout << s.name << endl;//error
+//	return 0;
+//}
 
-	return 0;
-}
+//重载+运算符号
+//class Time
+//{
+//public:
+//	int hours;      // 小时
+//	int minutes;    // 分钟
+//	Time()
+//	{
+//		hours = 0;
+//		minutes = 0;
+//	}
+//	Time(int h, int m)
+//	{
+//		this->hours = h;
+//		this->minutes = m;
+//	}
+//	void show()
+//	{
+//		cout << hours << " " << minutes << endl;
+//	}
+//	// write your code here......
+//	Time operator+(Time& t)
+//	{
+//		Time ret;
+//		ret.minutes = minutes + t.minutes;
+//		ret.hours = hours + t.hours;
+//		if (ret.minutes >= 60)
+//		{
+//			ret.hours += 1;
+//			ret.minutes -= 60;
+//		}
+//		return ret;
+//	}
+//
+//};
+//int main()
+//{
+//	int h, m;
+//	cin >> h;
+//	cin >> m;
+//	Time t1(h, m);
+//	Time t2(2, 20);
+//	//t1.operator+(t2)
+//	Time t3 = t1 + t2;
+//	t3.show();
+//	return 0;
+//}
 
+//class Time {
+//public:
+//    int hours;      // 小时
+//    int minutes;    // 分钟
+//    Time() {
+//        hours = 0;
+//        minutes = 0;
+//    }
+//    Time(int h, int m) {
+//        this->hours = h;
+//        this->minutes = m;
+//    }
+//    void show() {
+//        cout << hours << " " << minutes << endl;
+//    }
+//    //write your code here......
+//    bool operator<(Time& t)
+//    {
+//        if (hours != t.hours)
+//        {
+//            return hours < t.hours;
+//        }
+//        else if (minutes != t.minutes)
+//        {
+//            return minutes < t.minutes;
+//        }
+//        else
+//        {
+//            return false;
+//        }
+//    }
+//};
+//int main() {
+//    int h, m;
+//    cin >> h;
+//    cin >> m;
+//    Time t1(h, m);
+//    Time t2(6, 6);
+//    //t1.operator<(t2)
+//    if (t1 < t2)
+//        cout << "yes";
+//    else
+//        cout << "no";
+//    return 0;
+//}
+
+//C++中关于类和对象的知识，远不⽌这些，类和对象的相关知识，在算法竞赛很少使⽤，但是在真正的软件开发过程中⾮常重要
+// C++的类和对象是C++⾯向对象思想重要组成体现，下来⼀定要深⼊学习和挖掘
+
+//int main()
+//{
+//
+//	return 0;
+//}
