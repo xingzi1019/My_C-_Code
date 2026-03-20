@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="DataStruct.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
