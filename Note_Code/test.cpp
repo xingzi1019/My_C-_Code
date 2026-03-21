@@ -2077,8 +2077,27 @@ struct s
 //C++中关于类和对象的知识，远不⽌这些，类和对象的相关知识，在算法竞赛很少使⽤，但是在真正的软件开发过程中⾮常重要
 // C++的类和对象是C++⾯向对象思想重要组成体现，下来⼀定要深⼊学习和挖掘
 
-//int main()
+//补充知识pair
+//pair 是 C++ 标准库中的⼀个模板类，⽤于将两个值组合成⼀个单⼀对象，通常⽤于存储键值对或返回多个值
+//它有两个公有成员 first 和 second ，分别表⽰第⼀个值和第⼆个值
+//我们可以把 pair 理解成 C++ 为我们提供⼀个结构体，⾥⾯有两个变量
+//struct pair
 //{
-//
-//	return 0;
-//}
+//	type first;
+//	type second;
+//};
+//使⽤的时候，可以指定 first 和 second 为我们想要的任意类型。
+//指定的⽅式为 pair<第⼀个关键字的类型, 第⼆个关键字的类型>
+//pair<int, int> p1; // 第⼀个 int，第⼆个 int
+//pair<long long, int> p2; // 第⼀个 long long，第⼆个 int
+//pair<string, int> p3; // 第⼀个 sting，第⼆个 int
+//不过，⼀般使⽤ pair 的时候，上述⽅式要写很多代码，我们⼀般会 typedef ⼀下
+//typedef pair<int, int> PII;
+//PII p1;
+//typedef pair<long long, long long> PLL;
+//PLL p2;
+int main()
+{
+
+	return 0;
+}

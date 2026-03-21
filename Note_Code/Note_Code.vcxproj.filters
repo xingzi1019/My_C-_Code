@@ -18,10 +18,13 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DataStruct.cpp">
+    <ClCompile Include="SqTable.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="vector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DC2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
