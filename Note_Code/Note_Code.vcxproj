@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DC2.cpp" />
+    <ClCompile Include="LinkList.cpp" />
     <ClCompile Include="SqTable.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="vector.cpp" />
