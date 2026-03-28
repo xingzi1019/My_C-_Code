@@ -9,4 +9,6 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <list>//list
+#include <stack>//stack
 

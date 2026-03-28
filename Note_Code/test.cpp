@@ -1773,11 +1773,11 @@ using namespace std;
 //}
 
 //结构体排序
-struct s
-{
-	string name;
-	int age;
-};
+//struct s
+//{
+//	string name;
+//	int age;
+//};
 //创建函数的方式
 //bool cmp_s_by_name(s s1, s s2)
 //{

@@ -21,7 +21,7 @@
     <ClCompile Include="SqTable.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="vector.cpp">
+    <ClCompile Include="STL_vector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DC2.cpp">
@@ -31,6 +31,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DoubleLinkList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STL_list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MyStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STL_stack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

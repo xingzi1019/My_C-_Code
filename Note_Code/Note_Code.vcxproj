@@ -123,12 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="STL_list.cpp" />
     <ClCompile Include="DC2.cpp" />
     <ClCompile Include="DoubleLinkList.cpp" />
+    <ClCompile Include="MyStack.cpp" />
     <ClCompile Include="SingleLinkList.cpp" />
     <ClCompile Include="SqTable.cpp" />
+    <ClCompile Include="STL_stack.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="vector.cpp" />
+    <ClCompile Include="STL_vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />

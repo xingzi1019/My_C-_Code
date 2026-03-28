@@ -2,6 +2,21 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Run Note_Code (x64 Debug)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "preLaunchTask": "build (msbuild x64 Debug)",
+      "program": "${workspaceFolder}\\x64\\Debug\\Note_Code.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "console": "externalTerminal"
+    }
+  ]
+}
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
