@@ -42,6 +42,21 @@
     <ClCompile Include="STL_stack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="做题.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="队列.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STL_queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STL_deque.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="树.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

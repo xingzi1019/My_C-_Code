@@ -11,4 +11,6 @@
 #include <vector>
 #include <list>//list
 #include <stack>//stack
+#include <queue>//queue
+#include <deque>//deque
 
