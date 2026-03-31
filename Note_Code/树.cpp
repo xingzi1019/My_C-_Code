@@ -125,32 +125,171 @@ using namespace std;
 //从根结点开始 找到一个没有访问过的孩子 以孩子为根  -----> 重复做这个事 那就可以用递归来实现
 //因此 DFS 就是利用树的递归定义 使用递归的形式进行遍历
 
-const int N = 1e5 + 10;
-vector<int> edges[N];
-bool st[N];//用来标记哪些结点已经遍历过了
-void dfs(int u)
-{
-	cout << u << ' ';
-	st[u] = true;//当前的u已经访问过了
-	//访问所有的孩子
-	for (auto v: edges[u])
-	{
-		if (st[v] == false)
-		{
-			dfs(v);//用递归来实现
-		}
-	}
-}
-int main()
-{
-	int n; cin >> n;
-	for (int i =1;i<=n;i++)
-	{
-		int a, b; cin >> a >> b;
-		edges[a].push_back(b);
-		edges[b].push_back(a);
-	}
-	//DFS
-	dfs(1);
-	return 0;
-}
+//const int N = 1e5 + 10;
+//vector<int> edges[N];
+//bool st[N];//用来标记哪些结点已经遍历过了
+//void dfs(int u)
+//{
+//	cout << u << ' ';
+//	st[u] = true;//当前的u已经访问过了
+//	//访问所有的孩子
+//	for (auto v: edges[u])
+//	{
+//		if (st[v] == false)
+//		{
+//			dfs(v);//用递归来实现 
+//		}
+//	}
+//}
+//int main()
+//{
+//	int n; cin >> n;
+//	for (int i = 1;i < n;i++)
+//	{
+//		int a, b; cin >> a >> b;
+//		edges[a].push_back(b);
+//		edges[b].push_back(a);
+//	}
+//	//DFS
+//	dfs(1);
+//	return 0;
+//}
+// 
+//链式前向星存储的遍历
+//const int N = 1e5 + 10;
+//int h[N], e[2 * N], ne[2 * N];
+//int n, id;
+//bool st[N];
+//void add(int a, int b)
+//{
+//	id++;
+//	e[id] = b;
+//	ne[id] = h[a];
+//	h[a] = id;
+//}
+//void dfs(int u)
+//{
+//	cout << u << ' ';
+//	st[u] = true;
+//	for (int i = h[u]; i; i = ne[i])
+//	{
+//		int v = e[i];//递归实现的关键
+//		if (st[u] == false)
+//		{
+//			dfs(v);
+//		}
+//	}
+//}
+//int main()
+//{
+//	cin >> n;
+//	for (int i = 1; i < n; i++)
+//	{
+//		int a, b; cin >> a >> b;
+//		add(a, b); add(b, a);
+//	}
+//	dfs(1);
+//	return 0;
+//}
+
+//宽度优先遍历 BFS
+//宽度优先遍历 英⽂缩写为 BFS 全称是 Breadth First Search 也叫 ⼴度优先遍历 也是⼀种⽤于遍历或搜索树或图的算法
+//所谓宽度优先 就是每次都尝试访问同⼀层的节点
+//如果同⼀层都访问完了 再访问下⼀层
+//实现⽅式：借助队列。
+//1. 初始化⼀个队列；
+//2. 根节点⼊队，同时标记该节点已经⼊队；
+//3. 当队列不为空时，拿出队头元素，访问，然后将队头元素的所有孩⼦⼊队，同时打上标记；
+//4. 重复 3 过程，直到队列为空
+
+//用vector存储的 BFS
+//const int N = 1e5 + 10;
+//int n;// n 个结点 (n - 1)条边
+//vector<int> edges[N];
+//bool st[N];
+//void bfs()
+//{
+//	queue<int> q;
+//	q.push(1);
+//	st[1] = true;
+//	while (q.size())
+//	{
+//		auto u = q.front(); q.pop();
+//		cout << u << ' ';
+//		for (auto v : edges[u])
+//		{
+//			if (!st[v])
+//			{
+//				q.push(v);
+//				st[v] = true;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	cin >> n;
+//	for (int i = 1; i < n; i++)
+//	{
+//		int a, b; cin >> a >> b;
+//		edges[a].push_back(b);
+//		edges[b].push_back(a);
+//	}
+//	bfs();
+//	return 0;
+//}
+//用链式前向星存储的 BFS
+//const static int N = 1e5 + 10;
+//int n;
+//int h[N], e[2 * N], ne[2 * N];
+//int id;
+//bool st[N];
+//void add(int a,int b)
+//{
+//	id++;
+//	e[id] = b;
+//	ne[id] = h[a];
+//	h[a] = id;
+//}
+//void bfs()
+//{
+//	queue<int> q;
+//	q.push(1);
+//	st[1] = true;
+//	while (q.size())
+//	{
+//		int u = q.front(); q.pop();
+//		cout << u << " ";
+//		for (int i = h[u]; i; i = ne[i])
+//		{
+//			int v = e[i];
+//			if (!st[v])
+//			{
+//				q.push(v);
+//				st[v] = true;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	cin >> n;
+//	for (int i = 1;i < n;i++)
+//	{
+//		int a, b; cin >> a >> b;
+//		add(a, b); add(b, a);
+//	}
+//	bfs();
+//	return 0;
+//}
+// 
+
+//递归展开图就是一棵树
+//递归的过程其实就是对这棵树执行深度优先遍历DFS
+//int fib(int n)
+//{
+//	if (n == 0 || n == 1)
+//		return n;
+//	else
+//		return fib(n - 1) + fib(n - 2);
+//}

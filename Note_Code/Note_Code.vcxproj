@@ -133,6 +133,7 @@
     <ClCompile Include="STL_stack.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="STL_vector.cpp" />
+    <ClCompile Include="二叉树.cpp" />
     <ClCompile Include="做题.cpp" />
     <ClCompile Include="STL_deque.cpp" />
     <ClCompile Include="树.cpp" />
