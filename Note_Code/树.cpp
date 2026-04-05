@@ -73,11 +73,12 @@ using namespace std;
 //e[id] = y; 
 //ne[id] = h[x]; 
 //h[x] = id; --------> 一样的这个最后改
+//
 //const int N = 1e5 + 10;
 //int id;
 //int h[N];
 //int e[2 * N], ne[2 * N];//因为会存两个
-//void add(int& a, int& b)//其实就是头插 把 b 头插到 a 所在的链表中
+//void add(int& a, int& b)//其实就是头插 把 b 头插到 a 所在的链表中   //无序不确定父子 所以插两次
 //{
 //	id++;
 //	e[id] = b;
