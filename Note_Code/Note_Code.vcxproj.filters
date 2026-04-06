@@ -63,6 +63,9 @@
     <ClCompile Include="堆.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="STL_priority_queue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

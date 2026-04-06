@@ -55,59 +55,68 @@ using namespace std;
 //}
 
 //堆的模拟实现
-const int N = 1e6 + 10;
-int n;
-int heap[N];
-void up(int child)
-{
-	int parent = child / 2;
-	while (heap[child] > heap[parent] && parent >= 1)
-	{
-		swap(heap[child], heap[parent]);
-		child = parent;
-		parent = child / 2;
-
-	}
-}
-void down(int parent)
-{
-	int child = parent * 2;
-	while (child <= n)
-	{
-		if (child + 1 <= n && heap[child] > heap[child + 1])
-		{
-			child++;
-		}
-		if (heap[child] <= heap[parent])
-		{
-			return;
-		}
-		swap(heap[child], heap[parent]);
-		parent = child;
-		child = parent * 2;
-	}
-}
-void push(int x)
-{
-	heap[++n] = x;//从最后面插入
-	up(n);//调整使其合法
-}
-void pop()
-{
-	swap(heap[1], heap[n]);//头尾交换
-	n--;
-	down(1);//调整使其合法
-}
-int top()
-{
-	return heap[1];
-}
-int size()
-{
-	return n;
-}
-int main()
-{
-
-	return 0;
-}
+//const int N = 1e6 + 10;
+//int n;
+//int heap[N];
+//void up(int child)
+//{
+//	int parent = child / 2;
+//	while (heap[child] > heap[parent] && parent >= 1)
+//	{
+//		swap(heap[child], heap[parent]);
+//		child = parent;
+//		parent = child / 2;
+//
+//	}
+//}
+//void down(int parent)
+//{
+//	int child = parent * 2;
+//	while (child <= n)
+//	{
+//		if (child + 1 <= n && heap[child+1] > heap[child])
+//		{
+//			child++;
+//		}
+//		if (heap[child] <= heap[parent])
+//		{
+//			return;
+//		}
+//		swap(heap[child], heap[parent]);
+//		parent = child;
+//		child = parent * 2;
+//	}
+//}
+//void push(int x)
+//{
+//	heap[++n] = x;//从最后面插入
+//	up(n);//调整使其合法
+//}
+//void pop()
+//{
+//	swap(heap[1], heap[n]);//头尾交换
+//	n--;
+//	down(1);//调整使其合法
+//}
+//int top()
+//{
+//	return heap[1];
+//}
+//int size()
+//{
+//	return n;
+//}
+//int main()
+//{
+//	int a[10] = { 1,41,23,10,11,2,-1,99,14,0 };
+//	for (int i = 0;i<10;++i)
+//	{
+//		push(a[i]);
+//	}
+//	while (size())
+//	{
+//		cout << top() << " ";
+//		pop();
+//	}
+//	return 0;
+//}

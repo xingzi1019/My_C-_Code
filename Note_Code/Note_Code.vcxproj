@@ -129,6 +129,7 @@
     <ClCompile Include="MyStack.cpp" />
     <ClCompile Include="SingleLinkList.cpp" />
     <ClCompile Include="SqTable.cpp" />
+    <ClCompile Include="STL_priority_queue.cpp" />
     <ClCompile Include="STL_queue.cpp" />
     <ClCompile Include="STL_stack.cpp" />
     <ClCompile Include="test.cpp" />
