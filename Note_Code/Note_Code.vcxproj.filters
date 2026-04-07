@@ -66,6 +66,9 @@
     <ClCompile Include="STL_priority_queue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="二叉搜索树.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

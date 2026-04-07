@@ -64,7 +64,7 @@ using namespace std;
 //	while (heap[child] > heap[parent] && parent >= 1)
 //	{
 //		swap(heap[child], heap[parent]);
-//		child = parent;
+//		child = parent;//因为是循环 所以 child 和 parent的值需要更新
 //		parent = child / 2;
 //
 //	}
