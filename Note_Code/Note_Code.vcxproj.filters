@@ -72,6 +72,12 @@
     <ClCompile Include="二叉平衡树.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="红黑树.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="set和map.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">

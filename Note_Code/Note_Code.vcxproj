@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="set和map.cpp" />
     <ClCompile Include="STL_list.cpp" />
     <ClCompile Include="DC2.cpp" />
     <ClCompile Include="DoubleLinkList.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="堆.cpp" />
     <ClCompile Include="树.cpp" />
     <ClCompile Include="二叉搜索树.cpp" />
+    <ClCompile Include="红黑树.cpp" />
     <ClCompile Include="队列.cpp" />
   </ItemGroup>
   <ItemGroup>
