@@ -1,4 +1,4 @@
-C++_Study
+# C++_Study / DaoMa
 
 > [!NOTE]
 >
@@ -18,3 +18,9 @@ My email: xingzi1019@q.com
 
 My QQ: 3164216981
 
+---
+
+## 分支说明
+
+- **main**: 当前主分支，包含 C++ 学习内容
+- **dao-ma**: 大一上 C 语言的学习内容（已合并）
